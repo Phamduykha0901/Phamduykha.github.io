@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Chủ - SkyCoders</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .hero {
+            background: url(/images/anh-ronaldo-4k-hinh-nen-ronaldo-ngau-dep-nhat_074945256.jpg) no-repeat center center;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+        .hero h1 {
+            font-size: 3rem;
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+        /* Đánh giá khách hàng */
+        .review-card {
+            background-color: #f7f7f7;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .review-card h5 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .review-card p {
+            font-size: 1rem;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="bg-dark text-white p-3">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1>SkyCoders Shop</h1>
+                <nav>
+                    <ul class="nav">
+                        <li class="nav-item"><a href="index.html" class="nav-link text-white">Trang chủ</a></li>
+                        <li class="nav-item"><a href="about.html" class="nav-link text-white">Giới thiệu</a></li>
+                        <li class="nav-item"><a href="products.html" class="nav-link text-white">Sản phẩm</a></li>
+                        <li class="nav-item"><a href="register.html" class="nav-link text-white">Đăng ký</a></li>
+                        <li class="nav-item"><a href="login.html" class="nav-link text-white">Đăng nhập</a></li>
+                    </ul>
+                </nav>
+                <!-- Icon giỏ hàng -->
+                <div>
+                    <button type="button" class="btn position-relative" data-bs-toggle="modal" data-bs-target="#cartModal">
+                        <img src="/images/png-clipart-shopping-cart-shopping-cart-removebg-preview.png" alt="Giỏ hàng" style="width: 40px;">
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cart-count">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Chào mừng đến với SkyCoders Shop!</h1>
+            <p class="lead">Khám phá các sản phẩm chất lượng, giá tốt, và dịch vụ tuyệt vời!</p>
+            <a href="products.html" class="btn btn-primary">Khám phá ngay</a>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="container my-5">
+        <h2 class="text-center">Sản phẩm nổi bật</h2>
+        <div class="row">
+            <!-- Sản phẩm 1 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/images/bdn-KHACH-CR7.jpg" class="card-img-top" alt="Sản phẩm 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Đồ Thể Thao</h5>
+                        <p class="card-text">Áo Đấu Bồ Đào Nha Sân Khách.</p>
+                        <p><strong>Giá: 500,000 VND</strong></p>
+                        <button class="btn btn-primary" onclick="addToCart('Sản phẩm 1', '500,000 VND', '/images/bdn-KHACH-CR7.jpg')">Thêm vào giỏ hàng</button>
+                        <a href="product-detail.html" class="btn btn-primary">Xem chi tiết</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Sản phẩm 2 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/images/c287d11b59935d233b1fa39297194c59.jpg_720x720q80.jpg" class="card-img-top" alt="Sản phẩm 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Đồ Thể Thao</h5>
+                        <p class="card-text">Áo Đấu Al Nassr Sân Nhà</p>
+                        <p><strong>Giá: 600,000 VND</strong></p>
+                        <button class="btn btn-primary" onclick="addToCart('Sản phẩm 2', '600,000 VND', '/images/c287d11b59935d233b1fa39297194c59.jpg_720x720q80.jpg')">Thêm vào giỏ hàng</button>
+                        <a href="product-detail.html" class="btn btn-primary">Xem chi tiết</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Sản phẩm 3 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/images/cn-11134207-7qukw-lfjdnlm94h4oad.jpg" class="card-img-top" alt="Sản phẩm 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Đồ Thể Thao</h5>
+                        <p class="card-text">Áo Đấu Bồ Đào Nha Sân Nhà</p>
+                        <p><strong>Giá: 700,000 VND</strong></p>
+                        <button class="btn btn-primary" onclick="addToCart('Sản phẩm 3', '700,000 VND', '/images/cn-11134207-7qukw-lfjdnlm94h4oad.jpg')">Thêm vào giỏ hàng</button>
+                        <a href="product-detail.html" class="btn btn-primary">Xem chi tiết</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center p-3">
+        <p>&copy; Skycodes. Tất cả quyền lợi được bảo vệ và đảm bảo chất lượng bởi chúng tôi.</p>
+    </footer>
+
+    <!-- Đánh giá khách hàng -->
+    <section id="customer-reviews" class="section bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4">Đánh giá của khách hàng</h2>
+            <div class="row">
+                <!-- Đánh giá 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="review-card">
+                        <h5>Nguyễn Văn A</h5>
+                        <p>"Sản phẩm tuyệt vời, dịch vụ rất tốt, tôi sẽ mua lại!"</p>
+                    </div>
+                </div>
+                <!-- Đánh giá 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="review-card">
+                        <h5>Trần Thị B</h5>
+                        <p>"Mua hàng rất dễ dàng, giao hàng nhanh chóng!"</p>
+                    </div>
+                </div>
+                <!-- Đánh giá 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="review-card">
+                        <h5>Phạm Minh C</h5>
+                        <p>"Chất lượng sản phẩm vượt xa mong đợi. Cảm ơn các bạn!"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Giỏ hàng Modal -->
+    <div class="modal" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">Giỏ Hàng</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Danh sách sản phẩm trong giỏ hàng -->
+                    <ul id="cart-items-list" class="list-group">
+                        <!-- Sản phẩm thêm vào sẽ hiển thị ở đây -->
+                    </ul>
+                    <p id="empty-cart-message" class="text-center text-muted mt-3" style="display: none;">Giỏ hàng của bạn trống.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    <a href="checkout.html" class="btn btn-primary">Thanh toán</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const cartItems = []; // Mảng lưu trữ các sản phẩm trong giỏ hàng
+        const cartItemsList = document.getElementById('cart-items-list');
+        const emptyCartMessage = document.getElementById('empty-cart-message');
+        const cartCount = document.getElementById('cart-count');
+
+        // Hàm thêm sản phẩm vào giỏ hàng
+        function addToCart(productName, productPrice, productImage) {
+            // Thêm sản phẩm vào danh sách giỏ hàng
+            cartItems.push({ name: productName, price: productPrice, image: productImage });
+
+            // Cập nhật giao diện giỏ hàng
+            updateCart();
+        }
+
+        // Hàm cập nhật giỏ hàng
+        function updateCart() {
+            // Xóa các sản phẩm cũ trong giỏ hàng
+            cartItemsList.innerHTML = '';
+
+            if (cartItems.length === 0) {
+                // Nếu giỏ hàng trống, hiển thị thông báo
+                emptyCartMessage.style.display = 'block';
+                cartCount.innerText = '0';
+            } else {
+                // Nếu giỏ hàng có sản phẩm, ẩn thông báo trống và hiển thị số lượng sản phẩm
+                emptyCartMessage.style.display = 'none';
+                cartCount.innerText = cartItems.length;
+
+                // Hiển thị từng sản phẩm trong giỏ hàng
+                cartItems.forEach(item => {
+                    const listItem = document.createElement('li');
+                    listItem.className = 'list-group-item d-flex align-items-center';
+
+                    // Thêm ảnh sản phẩm
+                    const productImg = document.createElement('img');
+                    productImg.src = item.image;
+                    productImg.alt = item.name;
+                    productImg.style.width = '50px';
+                    productImg.style.marginRight = '10px';
+
+                    // Thêm thông tin sản phẩm
+                    const productInfo = document.createElement('div');
+                    productInfo.innerHTML = `<strong>${item.name}</strong><br>${item.price} VND`;
+
+                    listItem.appendChild(productImg);
+                    listItem.appendChild(productInfo);
+                    cartItemsList.appendChild(listItem);
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>
